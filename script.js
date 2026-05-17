@@ -13,7 +13,10 @@ let urlArray;
 
 function init() {
   urlArray = JSON.parse(localStorage.getItem('urlLinks')) || [];
+  (urlArray.length === 0)?
+  ulEl.innerHTML = `<li><a href="https://example.com">https://example.com</a></li>`:
   displayWebLink(urlArray);
+
 }
 
 inputEl.addEventListener('keypress', (event) => {
@@ -48,12 +51,11 @@ function displayWebLink(nameArray) {
 }
 
 function clearArray(nameArray) {
-  nameArray = [];
-  localStorage.setItem('urlLinks', JSON.stringify(nameArray));
+  localStorage.clear();
   init();
 }
 
 
 
 // load the logic....
-document.addEventListener('DOMContentLoaded',()=>{init()});
+document.addEventListener('DOMContentLoaded', () => { init() });

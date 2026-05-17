@@ -131,6 +131,11 @@ input {
     border-radius: 7px;
 }
 
+input:focus{
+ border-color: rgb(242, 255, 0);
+ outline: none;
+}
+
 button {
     padding: 4px 17px;
     font-size: 19px;
@@ -142,23 +147,27 @@ button {
     color: #3e3e3e;
     cursor: pointer;
 }
+button:focus{
+    outline: none;
+}
 
 #clear_inputs-btn {
     background-color: #ff9d9d;
 }
 
 .web_link-list {
+    margin-top: 9px;
     max-height: 100px;
     overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-width: none;
-    background-color: #101010;
+    background-color: #0a0a0a;
     min-height: 100px;
     border-radius: 8px;
 }
 
 ul {
-    padding: 0px 23px;
+    padding: 0px 27px;
     color: greenyellow;
 }
 
