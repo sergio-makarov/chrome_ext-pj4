@@ -130,7 +130,6 @@ input {
     padding: 8px;
     border-radius: 7px;
 }
-
 button {
     padding: 4px 17px;
     font-size: 19px;
@@ -140,6 +139,10 @@ button {
     border: none;
     border-radius: 6px;
     color: #3e3e3e;
+    cursor: pointer;
+}
+#clear_inputs-btn{
+    background-color: #ff9d9d;
 }
 .web_link-list{
     max-height: 100px;
