@@ -130,6 +130,7 @@ input {
     padding: 8px;
     border-radius: 7px;
 }
+
 button {
     padding: 4px 17px;
     font-size: 19px;
@@ -141,20 +142,26 @@ button {
     color: #3e3e3e;
     cursor: pointer;
 }
-#clear_inputs-btn{
+
+#clear_inputs-btn {
     background-color: #ff9d9d;
 }
-.web_link-list{
+
+.web_link-list {
     max-height: 100px;
     overflow-x: hidden;
-    overflow-y:scroll;
+    overflow-y: scroll;
     scrollbar-width: none;
+    background-color: #101010;
+    min-height: 100px;
+    border-radius: 8px;
 }
-ul{
-    padding:  0px 23px;
+
+ul {
+    padding: 0px 23px;
     color: greenyellow;
 }
 
-a{
+a {
     color: greenyellow;
 }
