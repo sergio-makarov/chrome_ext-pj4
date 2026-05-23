@@ -61,12 +61,12 @@ function addLinkToArray(nameArray) {
 }
 
 function addTabLinkToArray() {
-
   // Chrome Application Programming Interface(API) to get the tab; 
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     urlArray.push(tabs[0].url);
     localStorage.setItem('urlLinks', JSON.stringify(urlArray));
     displayWebLink(urlArray);
+    ulContainer.scrollTop = ulContainer.scrollHeight;
   });
 
 
