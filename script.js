@@ -1,9 +1,15 @@
+// Mini DataBase;
+// const tabs = [{url:"https://www.youtube.com/watch?v=LzMnsfqjzkA"}];
+
+
 //all const elements
 const inputEl = document.getElementById('input-el');
 const saveInputBtn = document.getElementById('save_input-btn');
+const saveTab = document.getElementById('save_tab-btn');
 const clearInputsBtn = document.getElementById('clear_inputs-btn');
 const ulEl = document.getElementById('ul-el');
 const ulContainer = document.querySelector('.web_link-list');
+
 
 
 //all let elements
@@ -13,11 +19,24 @@ let urlArray;
 
 function init() {
   urlArray = JSON.parse(localStorage.getItem('urlLinks')) || [];
-  (urlArray.length === 0)?
-  ulEl.innerHTML = `<li><a href="https://example.com">https://example.com</a></li>`:
-  displayWebLink(urlArray);
+  (urlArray.length === 0) ?
+    ulEl.innerHTML = `<li><a href="https://example.com">https://example.com</a></li>` :
+    displayWebLink(urlArray);
 
 }
+
+
+
+
+
+
+
+//All events..
+saveInputBtn.addEventListener('click', addUrlLinkToArray);
+clearInputsBtn.addEventListener('click', clearUrlArray);
+saveTab.addEventListener('click', addTabLinkToArray);
+
+
 
 inputEl.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
@@ -26,13 +45,12 @@ inputEl.addEventListener('keypress', (event) => {
 })
 
 
-
-//All events..
-saveInputBtn.addEventListener('click', () => { addLinkToArray(urlArray) });
-clearInputsBtn.addEventListener('click', () => { clearArray(urlArray) });
-
-
-
+function addUrlLinkToArray() {
+  addLinkToArray(urlArray);
+}
+function clearUrlArray() {
+  clearArray(urlArray);
+}
 
 function addLinkToArray(nameArray) {
   nameArray.push(inputEl.value);
@@ -42,6 +60,18 @@ function addLinkToArray(nameArray) {
   ulContainer.scrollTop = ulContainer.scrollHeight;
 }
 
+function addTabLinkToArray() {
+
+  // Chrome Application Programming Interface(API) to get the tab; 
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    urlArray.push(tabs[0].url);
+    localStorage.setItem('urlLinks', JSON.stringify(urlArray));
+    displayWebLink(urlArray);
+  });
+
+
+
+}
 
 function displayWebLink(nameArray) {
   ulEl.innerHTML = '';
